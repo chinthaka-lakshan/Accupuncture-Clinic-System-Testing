@@ -38,9 +38,11 @@ const SingleItem = () => {
         axios.put(`/updateInventoryItem`, item)
             .then(response => {
                 console.log('item details updated:', response.data);
+                alert("Item Updated Successfully ");
             })
             .catch(error => {
                 console.error("There was an error updating the item!", error);
+                alert("Failed to update the item. Please try again.");
             });
             navigate(`/inventory`)
           };
