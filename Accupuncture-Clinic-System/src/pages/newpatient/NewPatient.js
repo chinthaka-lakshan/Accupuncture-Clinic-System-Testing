@@ -27,11 +27,14 @@ const NewPatient = () => {
   };
 
   const handleSubmit = (e) => {
+//New patient post method
     e.preventDefault();
     axios.post('/addPatients', patient)
       .then(response => {
         console.log(response.data);
-        // Clear the form
+        alert("Patient Added Successfully");
+      
+// Clear the form
         setPatient({
           patientID: '',
           patientName: '',
@@ -44,7 +47,9 @@ const NewPatient = () => {
       })
       .catch(error => {
         console.error("There was an error adding the patient!", error);
+        alert("Failed to add the patient. Please try again.");
       });
+    
   };
 
   return (
@@ -101,7 +106,6 @@ const NewPatient = () => {
             </form>
           </div>
         </div>
-        
       </div>
     </div>
   );

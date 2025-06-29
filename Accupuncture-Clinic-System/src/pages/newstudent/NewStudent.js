@@ -23,11 +23,13 @@ const NewStudent = () => {
   };
 
   const handleSubmit = (e) => {
+//New student post method
     e.preventDefault();
     axios.post('/addStudent', student)
       .then(response => {
         console.log(response.data);
-        // Clear the form
+        alert("Student Added Successfully");
+// Clear the form
         setStudent({
           studentID: '',
           studentName: '',
@@ -37,6 +39,7 @@ const NewStudent = () => {
       })
       .catch(error => {
         console.error("There was an error adding the student!", error);
+        alert("Failed to add the student. Please try again.");
       });
   };
   return (

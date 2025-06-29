@@ -10,10 +10,11 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+// valid username and password
         const validUsername = 'kiu';  
         const validPassword = 'kiu@123';  
 
+// Enter the valid username and password after navigate the Home page
         if (username === validUsername && password === validPassword) {
             navigate('/home');
         } else {
