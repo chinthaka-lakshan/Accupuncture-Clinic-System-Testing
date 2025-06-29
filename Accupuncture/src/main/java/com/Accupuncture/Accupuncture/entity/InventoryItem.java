@@ -31,4 +31,7 @@ public class  InventoryItem {
 
     @Column(name = "VENDORNAME")
     private String vendorName;
+
+    public InventoryItem(String needles, int i, BigDecimal bigDecimal) {
+    }
 }

@@ -1,14 +1,56 @@
-  plugins {
+//  plugins {
+//	id 'java'
+//	id 'org.springframework.boot' version '3.2.4'
+//	id 'io.spring.dependency-management' version '1.1.4'
+//}
+//
+//group = 'com.Accupuncture'
+//version = '0.0.1-SNAPSHOT'
+//
+//java {
+//	sourceCompatibility = '17'
+//}
+//
+//configurations {
+//	compileOnly {
+//		extendsFrom annotationProcessor
+//	}
+//}
+//
+//repositories {
+//	mavenCentral()
+//}
+//
+//dependencies {
+//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//	implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'org.jetbrains:annotations:24.0.0'
+//    compileOnly 'org.projectlombok:lombok'
+//	runtimeOnly 'com.mysql:mysql-connector-j'
+//	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
+//	annotationProcessor 'org.projectlombok:lombok'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//}
+//
+//tasks.named('test') {
+//	useJUnitPlatform()
+//}
+
+plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.4'
 	id 'io.spring.dependency-management' version '1.1.4'
+	id 'jacoco'
+	id 'checkstyle'
 }
 
 group = 'com.Accupuncture'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = '17'
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
 }
 
 configurations {
@@ -22,16 +64,84 @@ repositories {
 }
 
 dependencies {
+	// Main Dependencies
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.jetbrains:annotations:24.0.0'
-    compileOnly 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
-	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter-params'
+	testImplementation 'org.testcontainers:junit-jupiter:1.19.3'
+	testImplementation 'org.testcontainers:mysql:1.19.3'
+	testImplementation 'io.rest-assured:rest-assured:5.4.0'
+	testImplementation 'org.mockito:mockito-inline:5.2.0' // For final class mocking
+	testImplementation 'org.awaitility:awaitility:4.2.0' // For async testing
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+	systemProperty 'spring.profiles.active', 'test'
+	finalizedBy jacocoTestReport
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
+
+jacocoTestReport {
+	dependsOn test
+	reports {
+		xml.required = true
+		html.required = true
+		csv.required = false
+	}
+
+	afterEvaluate {
+		classDirectories.setFrom(files(classDirectories.files.collect {
+			fileTree(dir: it, exclude: [
+					'**/config/**',
+					'**/dto/**',
+					'**/exception/**'
+			])
+		}))
+	}
+}
+
+checkstyle {
+	toolVersion = '10.12.1'
+	configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
+	ignoreFailures = false
+	maxWarnings = 0
+}
+
+tasks.register('integrationTest', Test) {
+	description = 'Runs integration tests.'
+	group = 'verification'
+
+	useJUnitPlatform {
+		includeTags 'integration'
+	}
+	shouldRunAfter test
+	systemProperty 'spring.profiles.active', 'integration-test'
+}
+
+tasks.register('e2eTest', Test) {
+	description = 'Runs end-to-end tests.'
+	group = 'verification'
+
+	useJUnitPlatform {
+		includeTags 'e2e'
+	}
+	shouldRunAfter integrationTest
+	systemProperty 'spring.profiles.active', 'e2e-test'
+}
+
+check {
+	dependsOn integrationTest
+	dependsOn e2eTest
 }
