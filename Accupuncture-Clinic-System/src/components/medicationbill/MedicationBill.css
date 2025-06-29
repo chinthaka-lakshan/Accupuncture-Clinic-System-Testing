@@ -1,0 +1,162 @@
+.newBill {
+    width: 100%;
+    display: flex;
+
+}
+
+.newContainer {
+    flex: 6;
+}
+
+.medication-bill {
+    width: 80%;
+    margin: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-group, .formInput {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label, .formInput label {
+    margin-bottom: 5px;
+}
+
+.form-group input, .formInput input, .form-group select, .formInput select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #020092;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.medicTable {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+
+    th, td {
+        border: 1px solid #ccc;
+    }
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.bill {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.bill button {
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+
+    .newContainer {
+        flex: 6;
+
+        .medication-bill {
+            width: 80%;
+            margin: 50px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .form-group, .formInput {
+            flex: 1 1 45%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label, .formInput label {
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .formInput input, .form-group select, .formInput select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .bill {
+            display: flex;
+            right: 180px;
+            top: 800px;
+            margin: 20px 450px;
+        }
+
+        .bill button {
+            display: flex;
+            background-color:darkblue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+}

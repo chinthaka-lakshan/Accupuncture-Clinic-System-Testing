@@ -1,0 +1,50 @@
+.updateItem {
+    width: 100%;
+    display: flex;
+
+
+    .itemContainer {
+    flex: 6;
+
+        .update-item {
+            width: 80%;
+            margin: 50px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .form-group, .formInput {
+            flex: 1 1 45%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label, .formInput label {
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .formInput input, .form-group select, .formInput select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 30px;
+            background-color: #020092;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    }
+}

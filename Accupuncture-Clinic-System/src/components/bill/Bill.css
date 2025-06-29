@@ -1,0 +1,84 @@
+.bill-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+    position: relative;
+    top: 50px;
+    left: 260px;
+    text-align: left;
+    height: 500px;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+    height: 600px;
+    border-radius: 10px;
+
+}
+
+.bill-container h1 {
+    color:darkblue;
+    text-align: center;
+    position: relative;
+    font-size: 40px;
+    
+}
+
+.bill-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    
+}
+
+.bill-label {
+    font-weight: bold;
+    position: relative;
+    font-size:18px;
+    top: 30px;
+    padding: 20px;
+    left: 100px;
+}
+
+.bill-value {
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    top: 100px;
+    padding: 20px;
+    right: 100px;
+}
+
+.b1{
+    position: relative;
+    bottom: 50px;
+    right: 40px;
+
+}
+
+.b2{
+    position: relative;
+    bottom: 50px;
+    right: 1px
+
+}
+
+.b3{
+    position: relative;
+    bottom: 48px;
+    right: 10px;
+}
+
+.b4{
+    position: relative;
+    bottom: 55px;
+    right: 1px;
+}
+
+.total-fee {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    position: relative;
+    top: 70px;
+    color: darkblue;
+}

@@ -1,0 +1,67 @@
+.patientstable {
+    height: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.patientstabletitle {
+    width: 100%;
+    font-size: 24px;
+    color: #616161;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link {
+    color: green;
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid green;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.datagrid {
+    color: #616161;
+    border: none;
+    width: 100%;
+}
+
+.cellaction {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.viewbutton, .updatebutton, .deletebutton {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid green;
+    color: green;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.viewbutton {
+    border-color: darkblue;
+    color: darkblue;
+}
+
+.updatebutton {
+    border-color: rgb(4, 185, 94);
+    color: rgb(4, 185, 94);
+}
+
+.deletebutton {
+    border-color: crimson;
+    color: crimson;
+}

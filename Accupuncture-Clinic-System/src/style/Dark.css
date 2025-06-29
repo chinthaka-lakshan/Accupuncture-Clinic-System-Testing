@@ -1,0 +1,164 @@
+.app.dark{
+    background-color: #111;
+    color: rgb(156,156,156);
+
+    .navbar{
+        background-color: #111;
+        color: #999;
+        border-color: #333;
+    }
+
+    .sidebar{
+        background-color: #111;
+        border-color: #333;
+
+        .top{
+            .logo{
+                color: #999;
+            }
+        }
+
+        ul{
+            li{
+                &:hover{
+                    background-color: #333;
+                }
+
+                .icon{
+                    color: #999;
+                }
+            }
+        }
+    }
+
+    .home{
+        background-color: #111;
+        color: #999;
+
+        .homeContainer{
+            background-color: #111;
+            color: #999;
+        }
+    }
+
+    .list{
+        background-color: #111;
+        color: #999;
+
+        .tableCell{
+            background-color: #111;
+            color: #999;
+        }
+    }
+
+    .singlePatient{
+        background-color: #111;
+        color: #999;
+    }
+
+    .singleStudent{
+        background-color: #111;
+        color: #999;
+    }
+
+    .singleItem{
+        background-color: #111;
+        color: #999;
+    }
+
+    .inventory{
+        .inventoryContainer{
+            background-color: #111;
+            color: #999;
+        }
+    }
+
+    .newPatient{
+        background-color: #111;
+        color: #999;
+
+        .right{
+            form{
+                .formInput{
+                    input{
+                        color: #999;
+                    }
+                }
+
+                button{
+                    background-color: #999;
+                    color: #111;
+                }
+            }
+        }
+    }
+
+    .newStudent{
+        background-color: #111;
+        color: #999;
+
+        .right{
+            form{
+                .formInput{
+                    input{
+                        color: #999;
+                    }
+                }
+
+                button{
+                    background-color: #999;
+                    color: #111;
+                }
+            }
+        }
+    }
+
+    .newItem{
+        background-color: #111;
+        color: #999;
+
+        .right{
+            form{
+                .formInput{
+                    input{
+                        color: #999;
+                    }
+                }
+
+                button{
+                    background-color: #999;
+                    color: #111;
+                }
+            }
+        }
+    }
+
+    .inventoryContainer{
+        background-color: #111;
+
+        .inventorytabletitle{
+            background-color: #111;
+            color: #999;
+
+            .tableCell{
+                background-color: #111;
+                color: #999;
+            }
+        }
+    }
+
+    .patientstable{
+        background-color: #111;
+        color: #999;
+
+        .datagrid{
+            color: gray;
+            border: none;
+
+            .viewButton, .updateButton, .deleteButton{
+                color: gray;
+                border: 1px dashed #999
+            }
+        }
+    }
+}

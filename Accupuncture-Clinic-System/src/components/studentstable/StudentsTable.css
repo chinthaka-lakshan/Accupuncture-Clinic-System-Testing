@@ -1,0 +1,72 @@
+.studentstable{
+    height: 600px;
+    padding: 20px;
+
+    .cellWithImg{
+        display: flex;
+        align-items: center;
+
+        .cellImg{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    }
+
+    .studentstabletitle{
+        width: 100%;
+        font-size: 24px;
+        color: #616161;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .link{
+            color: green;
+            font-size: 16px;
+            font-weight: 400;
+            border: 1px solid green;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+
+    .datagrid{
+        color: #616161;
+        border: none;
+    }
+
+    .cellaction{
+        align-items: center;
+        display: flex;
+        gap: 15px;
+
+        .viewbutton{
+            padding: 2px 5px;
+            border-radius: 5px;
+            color: darkblue;
+            border: 1px solid rgba(0,0,139,0.596);
+            cursor: pointer;
+        }
+        .updatebutton{
+            padding: 2px 5px;
+            border-radius: 5px;
+            color: rgb(4, 185, 94);
+            border: 1px solid rgb(4, 185, 94);
+            cursor: pointer;
+        }
+
+        .deletebutton{
+            padding: 2px 5px;
+            border-radius: 5px;
+            color: crimson;
+            border: 1px solid rgba(220,20,60,0.6);
+            cursor: pointer;
+        }
+    }
+}

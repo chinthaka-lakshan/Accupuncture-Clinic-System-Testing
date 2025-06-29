@@ -1,0 +1,57 @@
+.navbar{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    background-color: whitesmoke;
+    border-bottom: 1px solid rgb(145, 145, 145);
+
+    .navbarContainer{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: end;
+        padding: 50px;
+
+        .items{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .item{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+    
+                .label1{
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #210876;
+                }
+
+                .icon1{
+                    display: flex;
+                    align-items: center;
+                    font-size: 25px;
+                    cursor: pointer;
+                }
+
+                .label2{
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #210876;
+                }
+
+                .icon2{
+                    display: flex;
+                    align-items: center;
+                    font-size: 30px;
+                    cursor: pointer;
+                    border: 2px solid #210876;
+                    border-radius: 20%;
+                }
+            }
+        }
+    }
+}
