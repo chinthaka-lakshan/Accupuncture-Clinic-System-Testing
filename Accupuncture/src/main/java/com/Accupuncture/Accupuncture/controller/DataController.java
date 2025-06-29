@@ -20,6 +20,7 @@ public class DataController {
     @Autowired
     private DataSource dataSource;
 
+    //fetch counts for patients, students, and total income
     @GetMapping("/api/counts")
     public Map<String, Integer> getCounts() {
         Map<String, Integer> counts = new HashMap<>();
@@ -50,6 +51,7 @@ public class DataController {
         return counts;
     }
 
+    //fetch latest patient treatments
     @GetMapping("/api/latest-treatments")
     public List<Map<String, Object>> getLatestTreatments() {
         List<Map<String, Object>> latestTreatments = new ArrayList<>();

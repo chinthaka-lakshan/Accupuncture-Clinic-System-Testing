@@ -9,23 +9,28 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//Service layer for student management operations
 @Service
 public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    //Creates a new student record
     public Student saveDetails(Student student){
         return studentRepository.save(student);
     }
 
+    //Retrieves all students
     public List<Student> getAllDetails(){
         return studentRepository.findAll();
     }
 
+    //Retrieves a student by ID
     public Student getStudentDetailsByID(int studentID){
         return studentRepository.findById(studentID).orElse(null);
     }
 
+    //Updates an existing student record
     public Student updateDetails(Student student) {
         Student updateStudent = studentRepository.findById(student.getStudentID()).orElse(null);
         if (updateStudent != null) {
@@ -37,6 +42,7 @@ public class StudentService {
         return null;
     }
 
+    //Deletes a student by ID
     public String deleteStudent(int studentID){
         if(studentRepository.existsById(studentID)){
             studentRepository.deleteById(studentID);
