@@ -1,7 +1,9 @@
 package com.Accupuncture.Accupuncture.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -11,6 +13,8 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "Bill")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Bill {
 
     @Id
