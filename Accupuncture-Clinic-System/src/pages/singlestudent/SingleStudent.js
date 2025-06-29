@@ -34,9 +34,11 @@ const SingleStudent = () => {
         axios.put(`/updateStudent`, student)
             .then(response => {
                 console.log('Student details updated:', response.data);
+                alert("Student Updated Successfully");
             })
             .catch(error => {
                 console.error("There was an error updating the student!", error);
+                alert("Failed to update the student. Please try again.");
             });
             navigate(`/students`)
           };

@@ -40,9 +40,11 @@ const SinglePatient = () => {
         axios.put(`/updatepatient`, patient)
             .then(response => {
                 console.log('Patient details updated:', response.data);
+                alert("Patient Updated Successfully")
             })
             .catch(error => {
                 console.error("There was an error updating the patient!", error);
+                alert("Failed to update the patient. Please try again.");
             });
             navigate(`/patients`)
             
