@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import "./SinglePatient.css";
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import WheelchairPickupOutlinedIcon from '@mui/icons-material/WheelchairPickupOutlined';
 
 const SinglePatient = () => {
+    const navigate = useNavigate();
     const { patientId } = useParams();
     const [patientName, setPatientName] = useState('');
     const [address, setAddress] = useState('');
@@ -15,7 +16,7 @@ const SinglePatient = () => {
     const [phoneNo, setPhoneNo] = useState('');
 
     useEffect(() => {
-        // Fetch patient details by ID
+// Fetch patient details by ID
         axios.get(`/getPatientById/${patientId}`)
             .then(response => {
                 setPatientName(response.data.patientName);
@@ -30,7 +31,7 @@ const SinglePatient = () => {
     }, [patientId]);
 
     const handleSubmit = (e) => {
-        //Add patient Details
+//Update patient Details
         e.preventDefault();
         const patient = { patientID: parseInt(patientId), patientName, address, age, gender, phoneNo };
         
@@ -43,7 +44,9 @@ const SinglePatient = () => {
             .catch(error => {
                 console.error("There was an error updating the patient!", error);
             });
-    };
+            navigate(`/patients`)
+            
+        };
 
     return (
         <div className="singlePatient">
