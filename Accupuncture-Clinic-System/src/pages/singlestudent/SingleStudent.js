@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import './SingleStudent.css';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
@@ -7,12 +7,13 @@ import LocalLibraryOutlinedIcon from '@mui/icons-material/LocalLibraryOutlined';
 import axios from 'axios';
 
 const SingleStudent = () => {
+    const navigate = useNavigate();
     const { studentId } = useParams();
     const [studentName, setStudentName] = useState('');
     const [contactNo, setContactNo] = useState('');
 
     useEffect(() => {
-        // Fetch student details by ID
+// Fetch student details by ID
         axios.get(`/getStudentBYID/${studentId}`)
             .then(response => {
                 setStudentName(response.data.studentName);
@@ -24,7 +25,7 @@ const SingleStudent = () => {
     }, [studentId]);
 
     const handleSubmit = (e) => {
-        //Update student Details
+//Update student Details
         e.preventDefault();
         const student = { studentID: parseInt(studentId), studentName, contactNo };
         
@@ -37,6 +38,7 @@ const SingleStudent = () => {
             .catch(error => {
                 console.error("There was an error updating the student!", error);
             });
+            navigate(`/students`)
           };
 
     return (

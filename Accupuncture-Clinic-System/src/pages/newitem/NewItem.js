@@ -22,12 +22,13 @@ const NewItem = () => {
         });
       };
       const handleSubmit = (e) => {
-        //Add item details
+//New item post method
         e.preventDefault();
         axios.post('/addInventoryItem', inventoryItem)
           .then(response => {
             console.log(response.data);
-            // Clear the form
+            alert("Item added successfully!");
+// Clear the form
             setInventoryItem({
                 itemID: '',
                 itemName: '',
@@ -38,6 +39,7 @@ const NewItem = () => {
           })
           .catch(error => {
             console.error("There was an error adding the item!", error);
+            alert("Failed to add the item. Please try again.");
           });
       };
     
@@ -55,22 +57,22 @@ const NewItem = () => {
             </div>
             <div className='right'>
                 <form onSubmit={handleSubmit}>
-                    <div className='formInput'>
-                        <label>Item Id</label>
-                        <input type='int' id='ITEMID' name='itemID' placeholder='Enter Item Id'onChange={handleChange} value={inventoryItem.itemID} required/>
-                    </div>
-                    <div className='formInput'>
-                        <label>Item Name</label>
-                        <input type='String' id='ITEM_NAME' name='itemName' placeholder='Enter Item Name'onChange={handleChange} value={inventoryItem.itemName} required/>
-                    </div>
-                    <div className='formInput'>
-                        <label>Vendor</label>
-                        <input type='String' id='VENDOR NAME' name='vendorName' placeholder="Enter Vendor's Name"onChange={handleChange} value={inventoryItem.vendorName} required/>
-                    </div>
-                    <div className='formInput'>
-                        <label>Unit Price (LKR)</label>
-                        <input type='String' id='UNIT_PRICE' name='unitPrice' placeholder='Enter Unit Price In LKR'onChange={handleChange} value={inventoryItem.unitPrice} required/>
-                    </div>
+                      <div className='formInput'>
+                          <label>Item Id</label>
+                          <input type='int' id='ITEMID' name='itemID' placeholder='Enter Item Id'onChange={handleChange} value={inventoryItem.itemID} required/>
+                      </div>
+                      <div className='formInput'>
+                          <label>Item Name</label>
+                          <input type='String' id='ITEM_NAME' name='itemName' placeholder='Enter Item Name'onChange={handleChange} value={inventoryItem.itemName} required/>
+                      </div>
+                      <div className='formInput'>
+                          <label>Vendor</label>
+                          <input type='String' id='VENDOR NAME' name='vendorName' placeholder="Enter Vendor's Name"onChange={handleChange} value={inventoryItem.vendorName} required/>
+                      </div>
+                      <div className='formInput'>
+                          <label>Unit Price (LKR)</label>
+                          <input type='String' id='UNIT_PRICE' name='unitPrice' placeholder='Enter Unit Price In LKR'onChange={handleChange} value={inventoryItem.unitPrice} required/>
+                      </div>
                     <button type='submit'>Save</button>
                 </form>
             </div>

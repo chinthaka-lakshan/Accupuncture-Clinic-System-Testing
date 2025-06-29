@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import "./SingleItem.css";
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import MedicalServicesOutlinedIcon from '@mui/icons-material/MedicalServicesOutlined';
 import axios from 'axios';
 
 const SingleItem = () => {
+    const navigate = useNavigate();
     const { itemId } = useParams();
     const [itemName, setItemName] = useState('');
     const [vendorName, setVendorName] = useState('');
@@ -14,7 +15,7 @@ const SingleItem = () => {
     const [qty, setQuantity] = useState('');
 
     useEffect(() => {
-        // Fetch item details by ID
+// Fetch item details by ID
         axios.get(`/getInventoryItemById/${itemId}`)
             .then(response => {
                 setItemName(response.data.itemName);
@@ -28,7 +29,7 @@ const SingleItem = () => {
     }, [itemId]);
 
     const handleSubmit = (e) => {
-        // Add item detail
+// Update item details
         e.preventDefault();
         const item = { itemID: parseInt(itemId), itemName, vendorName, unitPrice, qty };
         
@@ -41,6 +42,7 @@ const SingleItem = () => {
             .catch(error => {
                 console.error("There was an error updating the item!", error);
             });
+            navigate(`/inventory`)
           };
 
     return (
