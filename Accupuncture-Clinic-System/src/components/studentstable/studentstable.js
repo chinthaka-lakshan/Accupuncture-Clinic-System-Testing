@@ -8,6 +8,7 @@ const StudentsTable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    // fetch all student details
     axios.get('/getAllStudents')
       .then(response => {
         setData(response.data);
@@ -18,6 +19,7 @@ const StudentsTable = () => {
   }, []);
 
   const handleDelete = (id) => {
+    // Delete student details by Id
     if (window.confirm("Are you sure you want to delete this patient?")){
       axios.delete(`/deleteStudent/${id}`)
       .then(response => {

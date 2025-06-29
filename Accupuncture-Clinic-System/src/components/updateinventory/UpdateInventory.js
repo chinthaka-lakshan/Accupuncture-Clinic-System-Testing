@@ -29,6 +29,7 @@ const handleSubmit = (e) => {
   console.log('Updating item with data:', item);
 
   axios.put(`/updateInventoryItem`, item)
+  // updated inventory item
       .then(response => {
           console.log('item details updated:', response.data);
       })
