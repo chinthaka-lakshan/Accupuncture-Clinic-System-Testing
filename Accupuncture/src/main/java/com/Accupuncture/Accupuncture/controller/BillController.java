@@ -15,6 +15,7 @@ public class BillController {
     @Autowired
     private BillService billService;
 
+    //Create New Bill
     @PostMapping("/createBill")
     public ResponseEntity<String> createBill(@RequestBody BillDTO billDTO) {
         try {
@@ -25,6 +26,7 @@ public class BillController {
         }
     }
 
+    //retrieve a bill by its ID
     @GetMapping("/getBill/{billId}")
     public ResponseEntity<Bill> getBill(@PathVariable String billId) {
         try {

@@ -9,25 +9,28 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//Service layer for inventory item operations
 @Service
 public class InventoryItemService {
     @Autowired
     private InventoryItemRepository inventoryItemRepository;
 
+    // Saves an inventory item
     public InventoryItem saveItems(InventoryItem inventoryItem){
-
         return inventoryItemRepository.save(inventoryItem);
     }
-    public List<InventoryItem> getAllItems(){
 
+    //Retrieves all inventory items
+    public List<InventoryItem> getAllItems(){
         return inventoryItemRepository.findAll();
     }
 
+    //Retrieves an inventory item by ID
     public InventoryItem getItemById(int itemId){
-
         return inventoryItemRepository.findById(itemId).orElse(null);
     }
 
+    //Updates an existing inventory item
     public InventoryItem updateDetails(InventoryItem inventoryItem) {
         InventoryItem updateInventoryItem = inventoryItemRepository.findById(inventoryItem.getItemID()).orElse(null);
         if (updateInventoryItem != null) {
@@ -41,6 +44,7 @@ public class InventoryItemService {
         return null;
     }
 
+    //Deletes an inventory item by ID
     public String deleteItem(int itemID){
 
         if(inventoryItemRepository.existsById(itemID)){

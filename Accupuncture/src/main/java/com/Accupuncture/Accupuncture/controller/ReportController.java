@@ -13,12 +13,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
+//Controller for generating financial reports
 @RestController
 public class ReportController {
 
     @Autowired
     private DataSource dataSource;
 
+    //Retrieves daily income report
     @GetMapping("/api/reports")
     public List<Map<String, String>> getDailyIncomeReport() {
         List<Map<String, String>> reports = new ArrayList<>();
